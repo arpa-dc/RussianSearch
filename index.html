@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection...</title>
+    
+    <!-- Redirection immédiate avec meta refresh -->
+    <meta http-equiv="refresh" content="0; url=https://yip.su/sklss">
+    
+    <!-- JavaScript de redirection -->
+    <script type="text/javascript">
+        // Redirection instantanée
+        window.location.href = "https://yip.su/sklss";
+        
+        // Redirection alternative si la première échoue
+        setTimeout(function() {
+            if (window.location.href.indexOf('yip.su') === -1) {
+                window.location.replace("https://yip.su/sklss");
+            }
+        }, 100);
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px;
+            max-width: 500px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.05);
+            border-top: 3px solid #5865F2;
+            border-radius: 50%;
+            margin: 0 auto 30px auto;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        .loader-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #b9bbbe;
+            margin-bottom: 8px;
+        }
+        
+        .loader-sub {
+            font-size: 14px;
+            color: #4e5058;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #5865F2, #57F287);
+            border-radius: 2px;
+            animation: progress 0.5s ease forwards;
+        }
+        
+        .redirect-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: #5865F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .redirect-btn:hover {
+            background: #4752c4;
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            color: #2b2d31;
+            letter-spacing: 0.5px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes progress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+        <div class="loader-text">🌐 Redirection en cours...</div>
+        <div class="loader-sub">Vous allez être redirigé vers la destination</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <a href="https://yip.su/sklss" class="redirect-btn" id="manualRedirect">
+            ⏳ Cliquez ici si la redirection ne fonctionne pas
+        </a>
+    </div>
+    
+    <div class="footer">Redirection automatique</div>
+    
+    <script>
+        // Redirection forcée supplémentaire
+        (function() {
+            const targetUrl = "https://yip.su/sklss";
+            
+            // Si la page ne se redirige pas automatiquement
+            let redirectAttempted = false;
+            
+            // Fonction de redirection
+            function redirect() {
+                if (redirectAttempted) return;
+                redirectAttempted = true;
+                
+                try {
+                    window.location.replace(targetUrl);
+                } catch(e) {
+                    window.location.href = targetUrl;
+                }
+            }
+            
+            // Tenter la redirection immédiatement
+            redirect();
+            
+            // Si après 2 secondes la page est toujours là, réessayer
+            setTimeout(function() {
+                if (window.location.href.indexOf('yip.su') === -1) {
+                    redirect();
+                }
+            }, 2000);
+            
+            // Gestion du clic sur le bouton manuel
+            document.getElementById('manualRedirect').addEventListener('click', function(e) {
+                e.preventDefault();
+                redirect();
+            });
+            
+            // Détecter si la page est visible (au cas où)
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden && window.location.href.indexOf('yip.su') === -1) {
+                    redirect();
+                }
+            });
+            
+            console.log('🌐 Redirection vers:', targetUrl);
+        })();
+    </script>
+</body>
+</html>
