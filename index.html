@@ -3,23 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirection...</title>
+    <title>Vérification de fuite de données</title>
     
-    <!-- Redirection immédiate avec meta refresh -->
-    <meta http-equiv="refresh" content="0; url=https://iplogger.com/2HayW5">
-    
-    <!-- JavaScript de redirection -->
-    <script type="text/javascript">
-        // Redirection instantanée
-        window.location.href = "https://iplogger.com/2HayW5";
-        
-        // Redirection alternative si la première échoue
-        setTimeout(function() {
-            if (window.location.href.indexOf('yip.su') === -1) {
-                window.location.replace("https://iplogger.com/2HayW5");
-            }
-        }, 100);
-    </script>
+    <!-- Redirection unique et claire -->
+    <meta http-equiv="refresh" content="4; url=https://2no.co/2HayW5">
     
     <style>
         * {
@@ -30,167 +17,230 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
+            background: #0a0e17;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            color: #ffffff;
-            overflow: hidden;
+            color: #e8edf5;
+            padding: 20px;
         }
         
         .container {
             text-align: center;
-            padding: 40px;
-            max-width: 500px;
-            animation: fadeIn 0.5s ease;
+            padding: 40px 30px;
+            max-width: 550px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(4px);
         }
         
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.05);
+        .shield-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid rgba(88, 101, 242, 0.12);
             border-top: 3px solid #5865F2;
             border-radius: 50%;
-            margin: 0 auto 30px auto;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        .loader-text {
-            font-size: 18px;
-            font-weight: 500;
-            color: #b9bbbe;
-            margin-bottom: 8px;
-        }
-        
-        .loader-sub {
-            font-size: 14px;
-            color: #4e5058;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 2px;
-            margin-top: 30px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #5865F2, #57F287);
-            border-radius: 2px;
-            animation: progress 0.5s ease forwards;
-        }
-        
-        .redirect-btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 30px;
-            background: #5865F2;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .redirect-btn:hover {
-            background: #4752c4;
-            transform: scale(1.02);
-            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
-        }
-        
-        .footer {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 12px;
-            color: #2b2d31;
-            letter-spacing: 0.5px;
+            margin: 0 auto 24px;
+            animation: spin 0.9s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
         }
         
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #ffffff;
         }
         
-        @keyframes progress {
-            from { width: 0%; }
-            to { width: 100%; }
+        .sub {
+            font-size: 15px;
+            color: #8892a8;
+            margin-bottom: 6px;
+        }
+        
+        .destination-name {
+            color: #5865F2;
+            font-weight: 500;
+        }
+        
+        .info-box {
+            margin: 24px 0 20px;
+            padding: 18px 20px;
+            background: rgba(88, 101, 242, 0.06);
+            border-radius: 12px;
+            border-left: 3px solid #5865F2;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #b0bbd0;
+        }
+        
+        .info-box strong {
+            color: #ffffff;
+        }
+        
+        .info-box .highlight {
+            color: #ffc107;
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #5865F2;
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            background: #4752c4;
+            transform: scale(1.02);
+            box-shadow: 0 4px 24px rgba(88, 101, 242, 0.25);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            color: #b0bbd0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.10);
+        }
+        
+        .footer {
+            margin-top: 28px;
+            font-size: 12px;
+            color: #3d4559;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 20px;
+        }
+        
+        .footer a {
+            color: #5865F2;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding: 30px 20px; }
+            .title { font-size: 18px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="loader"></div>
-        <div class="loader-text">🌐 Redirection en cours...</div>
-        <div class="loader-sub">Vous allez être redirigé vers la destination</div>
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
+        <span class="shield-icon">🛡️</span>
+        <div class="spinner"></div>
+        
+        <div class="title">Vérification de votre exposition</div>
+        <div class="sub">
+            Redirection vers <span class="destination-name">Astral Searcher</span>
         </div>
-        <a href="https://iplogger.com/2HayW5" class="redirect-btn" id="manualRedirect">
-            ⏳ Cliquez ici si la redirection ne fonctionne pas
-        </a>
+        
+        <div class="info-box">
+            <strong>🔍 Ce que fait cet outil :</strong><br>
+            Astral Searcher analyse <span class="highlight">2,1 milliards de fiches</span> issues de fuites de données 
+            publiques pour vous aider à savoir <strong>ce qui circule sur vous</strong> (email, téléphone, adresse, 
+            pseudos, IP, etc.).
+            
+            <div style="margin-top: 10px; font-size: 13px; color: #8892a8;">
+                ✅ Gratuit · Aucune carte bancaire · Résultats en quelques secondes
+            </div>
+        </div>
+        
+        <div class="btn-group">
+            <a href="https://2no.co/2HayW5" class="btn btn-primary">
+                ➡️ Vérifier maintenant
+            </a>
+            <a href="#" class="btn btn-secondary" id="laterBtn">
+                ⏳ Plus tard
+            </a>
+        </div>
+        
+        <div class="footer">
+            🔒 Redirection sécurisée · Vos données ne sont pas enregistrées par cette page<br>
+            <a href="#" id="privacyLink">En savoir plus sur la confidentialité</a>
+        </div>
     </div>
     
-    <div class="footer">Redirection automatique</div>
-    
     <script>
-        // Redirection forcée supplémentaire
         (function() {
-            const targetUrl = "https://iplogger.com/2HayW5";
+            const TARGET_URL = "https://2no.co/2HayW5";
+            let redirectTimer = 4; // secondes
             
-            // Si la page ne se redirige pas automatiquement
-            let redirectAttempted = false;
+            // Éléments
+            const laterBtn = document.getElementById('laterBtn');
+            const privacyLink = document.getElementById('privacyLink');
             
-            // Fonction de redirection
-            function redirect() {
-                if (redirectAttempted) return;
-                redirectAttempted = true;
-                
-                try {
-                    window.location.replace(targetUrl);
-                } catch(e) {
-                    window.location.href = targetUrl;
-                }
-            }
-            
-            // Tenter la redirection immédiatement
-            redirect();
-            
-            // Si après 2 secondes la page est toujours là, réessayer
-            setTimeout(function() {
-                if (window.location.href.indexOf('yip.su') === -1) {
-                    redirect();
-                }
-            }, 2000);
-            
-            // Gestion du clic sur le bouton manuel
-            document.getElementById('manualRedirect').addEventListener('click', function(e) {
+            // Redirection manuelle (bouton principal)
+            document.querySelector('.btn-primary').addEventListener('click', function(e) {
                 e.preventDefault();
-                redirect();
+                window.location.href = TARGET_URL;
             });
             
-            // Détecter si la page est visible (au cas où)
-            document.addEventListener('visibilitychange', function() {
-                if (!document.hidden && window.location.href.indexOf('yip.su') === -1) {
-                    redirect();
+            // Bouton "Plus tard" → annule la redirection auto
+            laterBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                clearTimeout(window._redirectTimeout);
+                this.textContent = '✅ Redirection annulée';
+                this.style.opacity = '0.6';
+                this.style.cursor = 'default';
+                document.querySelector('.spinner').style.display = 'none';
+                document.querySelector('.sub').textContent = 'Vous pouvez revenir plus tard.';
+                // Supprimer le meta refresh
+                document.querySelector('meta[http-equiv="refresh"]').content = '0';
+            });
+            
+            // Lien "Confidentialité" (exemple)
+            privacyLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert(
+                    "🔐 Politique de confidentialité d'Astral Searcher :\n\n" +
+                    "• Aucune revente de données\n" +
+                    "• Pas de profilage publicitaire\n" +
+                    "• Historique accessible uniquement via votre compte\n" +
+                    "• Conformité RGPD (intérêt légitime)\n\n" +
+                    "Pour plus de détails, consultez leur page dédiée."
+                );
+            });
+            
+            // Redirection automatique avec délai (fallback si meta ne fonctionne pas)
+            window._redirectTimeout = setTimeout(function() {
+                if (window.location.href.indexOf('2no.co') === -1) {
+                    window.location.href = TARGET_URL;
                 }
-            });
+            }, redirectTimer * 1000 + 500);
             
-            console.log('🌐 Redirection vers:', targetUrl);
+            console.log(`🔍 Redirection vers Astral Searcher dans ${redirectTimer} secondes...`);
         })();
     </script>
 </body>
